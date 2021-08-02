@@ -24,14 +24,6 @@ export default async function ({ addon, global, console, msg }) {
 
   manager.appendChild(searchBox);
 
-  const localVars = document.createElement("div");
-  const localHeading = document.createElement("span");
-  const localList = document.createElement("table");
-  localHeading.className = "sa-var-manager-heading";
-  localHeading.innerText = msg("for-this-sprite");
-  localVars.appendChild(localHeading);
-  localVars.appendChild(localList);
-
   const globalVars = document.createElement("div");
   const globalHeading = document.createElement("span");
   const globalList = document.createElement("table");
@@ -40,8 +32,16 @@ export default async function ({ addon, global, console, msg }) {
   globalVars.appendChild(globalHeading);
   globalVars.appendChild(globalList);
 
-  manager.appendChild(localVars);
+  const localVars = document.createElement("div");
+  const localHeading = document.createElement("span");
+  const localList = document.createElement("table");
+  localHeading.className = "sa-var-manager-heading";
+  localHeading.innerText = msg("for-this-sprite");
+  localVars.appendChild(localHeading);
+  localVars.appendChild(localList);
+
   manager.appendChild(globalVars);
+  manager.appendChild(localVars);
 
   const varTab = document.createElement("li");
   addon.tab.displayNoneWhileDisabled(varTab, { display: "flex" });
@@ -114,7 +114,7 @@ export default async function ({ addon, global, console, msg }) {
     resizeInputIfList() {
       if (this.scratchVariable.type === "list") {
         this.input.style.height = "auto";
-        const height = Math.min(1000, this.input.scrollHeight);
+        const height = Math.min(300, this.input.scrollHeight);
         if (height > 0) {
           this.input.style.height = height + "px";
         }

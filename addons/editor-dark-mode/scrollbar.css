@@ -12,8 +12,6 @@
 }
 .sa-body-editor::-webkit-scrollbar-thumb,
 .sa-body-editor ::-webkit-scrollbar-thumb {
-  width: 8px;
-  height: 8px;
   background-color: rgba(96, 96, 96, 0.8);
   border: 4px solid transparent;
   background-clip: padding-box;
