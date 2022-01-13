@@ -5,6 +5,7 @@
     :class="{
     'boolean-setting': setting.type === 'boolean',
     'number-setting': setting.type === 'integer' || setting.type === 'positive_integer',
+    'select-setting': setting.type === 'select',
   }"
   >
     <div class="setting-label-container">
@@ -60,11 +61,11 @@
         @change="updateSettings()"
         :disabled="!addon._enabled"
       />
-      <div v-if="setting.type === 'select'" class="filter-options">
+      <div v-if="setting.type === 'select'" class="button-group">
         <div
-          class="filter-option"
+          class="button"
           v-for="option of setting.potentialValues"
-          :class="{'sel' : addonSettings[setting.id] === option.id, 'disabled': !addon._enabled}"
+          :class="{'selected' : addonSettings[setting.id] === option.id, 'disabled': !addon._enabled}"
           @click="updateOption(option.id);"
         >
           {{ option.name }}
@@ -141,12 +142,12 @@
       <template v-if="!tableChild && !showResetDropdown"
         ><button
           type="button"
-          class="large-button clear-button"
+          class="button icon-only button-group-last clear-button"
           :disabled="!addon._enabled"
           :title="msg('reset')"
           @click="updateOption(setting.default || '')"
         >
-          <img src="../../images/icons/undo.svg" class="icon-type" /></button
+          <img src="../../images/icons/undo.svg" class="button-icon" /></button
       ></template>
     </div>
   </div>
@@ -229,6 +230,14 @@
   }
   .full-radius .setting-input.number {
     border-radius: 16px;
+  }
+
+  body.iframe .select-setting .button-group {
+  flex-wrap: wrap;
+  }
+  body.iframe .select-setting .button {
+    flex-grow: 1;
+    text-align: center;
   }
 
   .setting-input-container {

@@ -15,6 +15,7 @@
   --dark-red-variant: #d84a12;
   --dark-red-text: var(--dark-red-variant);
   --white-text: #fff;
+  --white-text-opacity50: rgba(255, 255, 255, 0.5);
 
   --page-background: #222;
   --content-background: #2a2a2a;

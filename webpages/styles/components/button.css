@@ -1,0 +1,85 @@
+.button {
+  height: 30px;
+  box-sizing: content-box;
+  padding: 0 12px;
+  background-color: var(--button-background);
+  border: 1px solid var(--control-border);
+  border-radius: 4px;
+  color: var(--content-text);
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 30px;
+  user-select: none;
+  transition: 0.2s ease;
+}
+.button.icon-only {
+  padding: 0 7px;
+  line-height: normal;
+}
+.button.button-group-middle {
+  border-inline-start: none;
+  border-radius: 0;
+}
+.button.button-group-first {
+  border-radius: 4px 0 0 4px;
+}
+[dir="rtl"] .button.button-group-first {
+  border-radius: 0 4px 4px 0;
+}
+.button.button-group-last {
+  border-inline-start: none;
+  border-radius: 0 4px 4px 0;
+}
+[dir="rtl"] .button.button-group-last {
+  border-radius: 4px 0 0 4px;
+}
+
+.button:hover {
+  background-color: var(--button-hover-background);
+}
+.button:disabled,
+.button.disabled {
+  background-color: var(--button-background);
+}
+.button:focus-visible {
+  outline: none;
+  border-color: var(--brand-orange);
+  box-shadow: var(--input-focus-shadow);
+}
+.button.selected {
+  background-color: var(--brand-orange);
+  color: var(--white-text);
+}
+
+.button-group {
+  display: flex;
+  overflow: hidden;
+  background-color: var(--button-background);
+  border: 1px solid var(--control-border);
+  border-radius: 4px;
+  user-select: none;
+}
+.button-group > .button {
+  border-top: none;
+  border-bottom: none;
+  border-inline-start: none;
+  border-radius: 0;
+}
+.button-group > .button:last-child {
+  border-inline-end: none;
+}
+
+.button > * {
+  vertical-align: middle;
+}
+.button .button-icon {
+  height: 16px;
+  width: 16px;
+  filter: var(--content-icon-filter);
+}
+.button:not(.icon-only) .button-icon {
+  margin-inline-end: 8px;
+}
+.button:disabled .button-icon {
+  opacity: 50%;
+}

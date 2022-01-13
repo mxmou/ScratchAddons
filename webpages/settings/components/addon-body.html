@@ -84,7 +84,7 @@
         <div class="addon-setting" v-for="preset of addon.presets">
           <button
             type="preset-button"
-            class="large-button"
+            class="button"
             :disabled="!addon._enabled"
             @click="loadPreset(preset)"
             :title="preset.description"

@@ -47,20 +47,3 @@
   background: rgb(177, 23, 248);
   border-color: #b20eb8;
 }
-.filter-option.sel.blue {
-  background: #175ef8;
-}
-.filter-option.sel.green {
-  background: #78fd2b;
-  color: #333;
-}
-.filter-option.sel.yellow {
-  background: #fddd2b;
-  color: #333;
-}
-.filter-option.sel.red {
-  background: #fd662b;
-}
-.filter-option.sel.darkgreen {
-  background: #00b1a8;
-}

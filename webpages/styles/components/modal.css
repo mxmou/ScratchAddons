@@ -45,7 +45,7 @@
   margin-top: 20px;
   overflow-y: auto;
 }
-.modal .large-button {
+.export-settings .button {
   display: block;
   margin-inline-end: 10px;
 }

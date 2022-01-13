@@ -95,6 +95,7 @@
        * Imports are here to attempt to speed up load. Also, it means licenses.html loads fewer unused styles, and this file doesn't get licenses.html's styles! In order of when it will be noticed/needed on the page
       */
       @import url("../styles/colors.css");
+      @import url("../styles/components/button.css");
       @import url("../styles/components/badges.css");
       @import url("../styles/components/filter.css");
       @import url("../styles/components/categories.css");
@@ -187,7 +188,7 @@
               v-show="searchInput === ''"
             >
               <span>{{ msg("exploreAllAddons", [addonAmt]) }}</span>
-              <button class="large-button" @click="openFullSettings()">{{ msg("openFullSettings") }}</button>
+              <button class="button" @click="openFullSettings()">{{ msg("openFullSettings") }}</button>
             </div>
             <addon-group-header
               v-if="addon.headerAbove"
@@ -223,11 +224,11 @@
               <div class="addon-setting">
                 <div class="filter-selector">
                   <div class="filter-text">{{ msg("theme") }}</div>
-                  <div class="filter-options">
-                    <div class="filter-option" :class="{'sel': theme === true}" @click="setTheme(true)">
+                  <div class="button-group">
+                    <div class="button" :class="{'selected': theme === true}" @click="setTheme(true)">
                       {{ msg("light") }}
                     </div>
-                    <div class="filter-option" :class="{'sel': theme === false}" @click="setTheme(false)">
+                    <div class="button" :class="{'selected': theme === false}" @click="setTheme(false)">
                       {{ msg("dark") }}
                     </div>
                   </div>
@@ -242,16 +243,16 @@
                 {{ msg("exportAndImportSettings") }}
               </span>
             </div>
-            <div class="addon-settings">
+            <div class="addon-settings export-settings">
               <span class="addon-description-full">{{ msg("exportAndImportSettingsDescription") }}</span>
               <span class="addon-description-full">{{ msg("useBrowserSync") }}</span>
               <div class="addon-setting">
                 <div class="filter-selector">
-                  <button class="large-button" @click="exportSettings()">{{ msg("export") }}</button>
+                  <button class="button" @click="exportSettings()">{{ msg("export") }}</button>
                 </div>
                 <div class="filter-selector">
-                  <button class="large-button" @click="importSettings()">{{ msg("import") }}</button>
-                  <button class="large-button hidden-button" id="confirmImport">{{ msg("confirmImport") }}</button>
+                  <button class="button" @click="importSettings()">{{ msg("import") }}</button>
+                  <button class="button hidden-button" id="confirmImport">{{ msg("confirmImport") }}</button>
                 </div>
                 <div class="filter-selector" style="margin-left: 16px">
                   <button class="large-button" @click="viewSettings()">{{ msg("viewSettings") }}</button>
@@ -285,8 +286,8 @@
     <div class="popup" v-cloak v-show="showPopupModal">
       <div class="label">{{ msg("settingsPagePermission", addonToEnable ? addonToEnable.name : "") }}</div>
       <div>
-        <button class="large-button" @click="openFullSettings()">{{ msg("openFullSettings") }}</button>
-        <button class="large-button" @click="hidePopup()">{{ msg("skipOpenFullSettings") }}</button>
+        <button class="button" @click="openFullSettings()">{{ msg("openFullSettings") }}</button>
+        <button class="button" @click="hidePopup()">{{ msg("skipOpenFullSettings") }}</button>
       </div>
     </div>
   </body>

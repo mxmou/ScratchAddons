@@ -104,6 +104,7 @@ h1 {
   margin-inline-end: 8px;
 }
 
+:disabled,
 .disabled {
   opacity: 50%;
 }
@@ -113,47 +114,11 @@ h1 {
   vertical-align: bottom;
 }
 
-.large-button {
-  color: var(--content-text);
-  background: var(--button-background);
-  border: 1px solid var(--control-border);
-  padding: 0 12px;
-  border-radius: 4px;
-  transition: 0.2s ease;
-  height: 32px;
-  box-sizing: border-box;
-  font-family: inherit;
-  font-size: 12px;
-}
-.large-button:hover:not([disabled]) {
-  background: var(--button-hover-background);
-  cursor: pointer;
-}
-.large-button:focus-visible {
-  outline: none;
-  border-color: var(--brand-orange);
-  box-shadow: var(--input-focus-shadow);
-}
-.large-button > * {
-  vertical-align: middle;
-}
-
-.clear-button {
-  padding-inline: 7px;
-  border-radius: 0 4px 4px 0;
-  border-inline-start: none !important;
-}
-[dir="rtl"] .clear-button {
-  border-radius: 4px 0 0 4px;
-}
 .number-setting .clear-button {
   border-radius: 0 16px 16px 0;
 }
 [dir="rtl"] .number-setting .clear-button {
   border-radius: 16px 0 0 16px;
-}
-.clear-button .icon-type {
-  margin: 0;
 }
 
 .reverted {
@@ -284,13 +249,6 @@ body.iframe .presets-column > .addon-setting {
 
 body.iframe .addons-container {
   padding: 10px 0;
-}
-body.iframe .filter-options {
-  flex-wrap: wrap;
-}
-body.iframe .filter-option {
-  flex-grow: 1;
-  text-align: center;
 }
 body.iframe .search-box input {
   flex-grow: 1;
