@@ -89,9 +89,8 @@
             @click="loadPreset(preset)"
             :title="preset.description"
           >
-            <span class="preset-preview">
+            <span v-if="addon.presetPreview" class="preset-preview">
               <component
-                v-if="addon.presetPreview"
                 :is="'preview-' + addon.presetPreview.type"
                 :options="addon.presetPreview"
                 :setting-data="addon.settings"
