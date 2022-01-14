@@ -49,9 +49,6 @@
   display: block;
   margin-inline-end: 10px;
 }
-.modal .filter-selector {
-  margin: 0;
-}
 .modal .addon-body,
 .modal .addon-setting {
   margin-inline: 0;

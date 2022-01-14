@@ -1,9 +1,3 @@
-.filter-selector {
-  display: flex;
-  margin-inline-start: 20px;
-  align-items: center;
-}
-
 .filter-text {
   font-weight: 600;
   margin-inline-end: 20px;
