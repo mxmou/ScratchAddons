@@ -17,11 +17,11 @@
         <div class="setting-table-list" v-sortable>
           <div class="setting-table-row" v-for="(i, row) of addonSettings[setting.id]">
             <div class="setting-table-options">
-              <button :disabled="!addon._enabled" class="addon-buttons" @click="deleteTableRow(i)">
-                <img class="icon-type" src="../../images/icons/close.svg" />
+              <button :disabled="!addon._enabled" class="button flat icon-only" @click="deleteTableRow(i)">
+                <img class="button-icon" src="../../images/icons/close.svg" />
               </button>
-              <button :disabled="!addon._enabled" class="addon-buttons handle">
-                <img class="icon-type" src="../../images/icons/drag.svg" />
+              <button :disabled="!addon._enabled" class="button flat icon-only handle">
+                <img class="button-icon" src="../../images/icons/drag.svg" />
               </button>
             </div>
             <div class="setting-table-row-settings">
@@ -35,17 +35,17 @@
             </div>
           </div>
         </div>
-        <div class="addon-split-button setting-table-dropdown" :class="{open: rowDropdownOpen}">
-          <button :disabled="!addon._enabled" class="addon-buttons addon-split-button-button" @click="addTableRow()">
-            <img class="icon-type" src="../../images/icons/plus.svg" />
+        <div class="setting-table-dropdown" :class="{open: rowDropdownOpen}">
+          <button :disabled="!addon._enabled" class="button flat icon-only button-group-first" @click="addTableRow()">
+            <img class="button-icon" src="../../images/icons/plus.svg" />
           </button>
           <div v-click-outside="closeResetDropdowns">
             <button
               :disabled="!addon._enabled"
-              class="addon-buttons addon-split-button-dropdown"
+              class="button flat icon-only button-group-last"
               @click="toggleRowDropdown"
             >
-              <img class="icon-type" src="../../images/icons/expand.svg" />
+              <img class="button-icon" src="../../images/icons/expand.svg" />
             </button>
             <ul>
               <li v-for="preset of setting.presets" @click="addTableRow(preset.values)">{{ preset.name }}</li>
@@ -375,6 +375,7 @@
     flex-wrap: wrap;
   }
   .setting-table-options {
+    margin-inline-end: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;

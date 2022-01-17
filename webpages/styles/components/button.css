@@ -33,6 +33,16 @@
 [dir="rtl"] .button.button-group-last {
   border-radius: 4px 0 0 4px;
 }
+.button.flat {
+  height: 32px;
+  background-color: transparent;
+  border: none;
+  line-height: 32px;
+  cursor: pointer;
+}
+.button.flat.icon-only {
+  padding: 0 8px;
+}
 
 .button:hover {
   background-color: var(--button-hover-background);
@@ -49,6 +59,14 @@
 .button.selected {
   background-color: var(--brand-orange);
   color: var(--white-text);
+}
+
+.button.flat:hover {
+  background-color: var(--hover-highlight);
+}
+.button.flat:disabled,
+.button.flat.disabled {
+  background-color: transparent;
 }
 
 .button-group {
