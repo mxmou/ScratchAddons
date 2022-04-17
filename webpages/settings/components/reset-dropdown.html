@@ -1,6 +1,12 @@
 <template>
   <div :class="{'setting-dropdown': true, open: isOpen}">
-    <button type="button" class="button icon-only button-group-last clear-button" :disabled="!enabled" @click="toggle" :title="msg('reset')">
+    <button
+      type="button"
+      class="button icon-only button-group-last clear-button"
+      :disabled="!enabled"
+      @click="toggle"
+      :title="msg('reset')"
+    >
       <img src="../../images/icons/expand.svg" class="button-icon" />
     </button>
     <ul>

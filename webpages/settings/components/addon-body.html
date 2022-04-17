@@ -92,13 +92,9 @@
           </button>
         </div>
       </div>
-      <button
-        v-if="addon.settings"
-        class="button flat description clear-settings"
-        @click="loadDefaults"
-      >
+      <button v-if="addon.settings" class="button flat description clear-settings" @click="loadDefaults">
         <img src="../../images/icons/undo.svg" class="button-icon" /><span>{{ msg("resetToDefault") }}</span>
-    </button>
+      </button>
     </div>
   </div>
 </template>
