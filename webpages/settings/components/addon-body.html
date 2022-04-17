@@ -2,7 +2,7 @@
   <div class="addon-body" v-show="shouldShow" :id="'addon-' + addon._addonId">
     <div class="addon-topbar">
       <div class="clickable-area" @click="expanded = !expanded">
-        <div class="btn-dropdown">
+        <div class="button flat icon-olny btn-dropdown">
           <img src="../../images/icons/expand.svg" alt="v" :class="{'reverted': expanded}" />
         </div>
         <div class="addon-name">
@@ -179,6 +179,12 @@
     margin-inline-end: 8px;
   }
 
+  .btn-dropdown {
+    padding: 0 4px;
+  }
+  .clickable-area:hover .btn-dropdown {
+    background-color: var(--hover-highlight);
+  }
   .btn-dropdown img {
     height: 24px;
     width: 24px;
