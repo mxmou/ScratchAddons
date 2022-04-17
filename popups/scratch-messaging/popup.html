@@ -12,6 +12,7 @@
       @import url("../../webpages/styles/colors.css");
       @import url("../../webpages/styles/components/tooltips.css");
       @import url("../../webpages/styles/components/popup.css");
+      @import url("../../webpages/styles/components/button.css");
     </style>
     <base target="_blank" />
 
@@ -68,10 +69,10 @@
         <div class="reply-box-comment" v-show="replying">
           <textarea class="reply-textarea" maxlength="500" v-model="replyBoxValue"></textarea>
           <div class="reply-box-buttons">
-            <button @click="!postingComment && postComment()" class="post-button">
+            <button @click="!postingComment && postComment()" class="button accent">
               {{ postingComment ? messages.postingMsg : messages.postMsg }}
             </button>
-            <button @click="replying = false" v-show="!postingComment">{{ messages.cancelMsg }}</button>
+            <button @click="replying = false" v-show="!postingComment" class="button">{{ messages.cancelMsg }}</button>
             <span class="comment-chars"> {{ replyBoxLeftMsg }}</span>
           </div>
         </div>
@@ -436,14 +437,14 @@
           <a @click="copyToClipboard(error)">{{ uiMessages.copyMsg }}</a>
           )
         </p>
-        <button @click="reloadPage()" v-show="commentsReady && !canShowMoreMessages">
-          <img class="small-icon" src="../../images/icons/reload.svg" /><span>{{ uiMessages.reloadMsg }}</span>
+        <button class="button" @click="reloadPage()" v-show="commentsReady && !canShowMoreMessages">
+          <img class="button-icon" src="../../images/icons/reload.svg" /><span>{{ uiMessages.reloadMsg }}</span>
         </button>
         <span v-show="messagesReady && showingMessagesAmt === 0 && stMessages.length === 0" class="status-empty"
           >{{ uiMessages.noUnreadMsg }}</span
         >
-        <button @click="showAllMessages = true" v-show="canShowMoreMessages">
-          <img class="small-icon" src="../../images/icons/plus.svg" /><span>{{ uiMessages.showMoreMsg }}</span>
+        <button class="button" @click="showAllMessages = true" v-show="canShowMoreMessages">
+          <img class="button-icon" src="../../images/icons/plus.svg" /><span>{{ uiMessages.showMoreMsg }}</span>
         </button>
       </div>
     </div>

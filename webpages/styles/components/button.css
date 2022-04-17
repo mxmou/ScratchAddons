@@ -34,6 +34,10 @@
 [dir="rtl"] .button.button-group-last {
   border-radius: 4px 0 0 4px;
 }
+.button.accent {
+  background-color: var(--blue);
+  color: var(--white-text);
+}
 .button.flat {
   height: 32px;
   background-color: transparent;
@@ -63,6 +67,10 @@
   cursor: default;
 }
 
+.button.accent:hover {
+  background-color: var(--blue);
+  border-color: var(--blue-variant);
+}
 .button.flat:hover {
   background-color: var(--hover-highlight);
 }
