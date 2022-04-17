@@ -9,6 +9,7 @@
   font-family: inherit;
   font-size: 12px;
   line-height: 30px;
+  cursor: pointer;
   user-select: none;
   transition: 0.2s ease;
 }
@@ -38,7 +39,6 @@
   background-color: transparent;
   border: none;
   line-height: 32px;
-  cursor: pointer;
 }
 .button.flat.icon-only {
   padding: 0 8px;
@@ -50,6 +50,7 @@
 .button:disabled,
 .button.disabled {
   background-color: var(--button-background);
+  cursor: default;
 }
 .button:focus-visible {
   outline: none;
@@ -59,6 +60,7 @@
 .button.selected {
   background-color: var(--brand-orange);
   color: var(--white-text);
+  cursor: default;
 }
 
 .button.flat:hover {
