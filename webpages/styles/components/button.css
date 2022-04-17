@@ -34,6 +34,9 @@
 [dir="rtl"] .button.button-group-last {
   border-radius: 4px 0 0 4px;
 }
+.button.description {
+  color: var(--description-text);
+}
 .button.accent {
   background-color: var(--blue);
   color: var(--white-text);
@@ -50,6 +53,7 @@
 
 .button:hover {
   background-color: var(--button-hover-background);
+  color: var(--content-text);
 }
 .button:disabled,
 .button.disabled {
@@ -104,9 +108,16 @@
   height: 16px;
   width: 16px;
   filter: var(--content-icon-filter);
+  transition: 0.2s ease;
 }
 .button:not(.icon-only) .button-icon {
   margin-inline-end: 8px;
+}
+.button.description .button-icon {
+  filter: var(--description-icon-filter);
+}
+.button:hover .button-icon {
+  filter: var(--content-icon-filter);
 }
 .button:disabled .button-icon {
   opacity: 50%;

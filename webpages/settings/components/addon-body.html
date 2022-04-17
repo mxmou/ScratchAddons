@@ -13,15 +13,6 @@
       </div>
       <div class="addon-description" v-show="!expanded" dir="auto">{{ addon.description }}</div>
       <div class="addon-check">
-        <div
-          v-show="expanded && addon._enabled"
-          v-if="addon.settings"
-          class="button flat icon-only clear-settings"
-          title="{{ msg('resetToDefault') }}"
-          @click="loadDefaults"
-        >
-          <img src="../../images/icons/undo.svg" class="button-icon" />
-        </div>
         <div class="switch" :state="addon._enabled ? 'on' : 'off'" @click="toggleAddonRequest"></div>
       </div>
     </div>
@@ -101,6 +92,13 @@
           </button>
         </div>
       </div>
+      <button
+        v-if="addon.settings"
+        class="button flat description clear-settings"
+        @click="loadDefaults"
+      >
+        <img src="../../images/icons/undo.svg" class="button-icon" /><span>{{ msg("resetToDefault") }}</span>
+    </button>
     </div>
   </div>
 </template>
@@ -176,7 +174,8 @@
   }
 
   .clear-settings {
-    margin-inline-end: 8px;
+    margin: 10px -2px;
+    margin-top: 0;
   }
 
   .btn-dropdown {

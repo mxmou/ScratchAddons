@@ -59,6 +59,7 @@
   --content-text: #fff;
   --content-icon-filter: brightness(0) invert(1);
   --description-text: #ddd;
+  --description-icon-filter: brightness(0) invert(0.867);
   --label-text: #aaa;
   --gray-text: #808080;
   --placeholder-text: #777;

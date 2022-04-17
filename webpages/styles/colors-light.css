@@ -35,6 +35,7 @@
   --content-text: #222;
   --content-icon-filter: brightness(0) invert(0.133);
   --description-text: #444;
+  --description-icon-filter: brightness(0) invert(0.267);
   --label-text: #555;
   --gray-text: #a1a1a1;
 }
