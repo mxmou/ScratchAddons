@@ -225,13 +225,14 @@ const createButtonRow = (tab, mode, { okButtonLabel, cancelButtonLabel } = {}) =
   return { buttonRow, cancelButton, okButton };
 };
 
-export const confirm = (tab, title, message, { useEditorClasses = false, okButtonLabel, cancelButtonLabel } = {}) => {
+export const confirm = async (tab, title, message, { useEditorClasses = false, okButtonLabel, cancelButtonLabel } = {}) => {
+  const mode = tab.editorMode !== null && useEditorClasses ? "editor" : tab.clientVersion;
+  if (mode === "editor") await tab.scratchClassReady();
   const { remove, container, content, backdrop, closeButton } = tab.createModal(title, {
     isOpen: true,
-    useEditorClasses: useEditorClasses,
+    useEditorClasses: mode === "editor",
     useSizesClass: true,
   });
-  const mode = tab.editorMode !== null && useEditorClasses ? "editor" : tab.clientVersion;
   if (mode === "editor") {
     container.classList.add(tab.scratchClass("prompt_modal-content"));
     content.classList.add(tab.scratchClass("prompt_body"));
@@ -250,7 +251,7 @@ export const confirm = (tab, title, message, { useEditorClasses = false, okButto
   if (mode === "scratchr2") container.appendChild(buttonRow);
   else content.appendChild(buttonRow);
   okButton.focus();
-  return new Promise((resolve) => {
+  return await new Promise((resolve) => {
     const cancel = () => {
       remove();
       resolve(false);
@@ -270,13 +271,14 @@ export const confirm = (tab, title, message, { useEditorClasses = false, okButto
   });
 };
 
-export const prompt = (tab, title, message, defaultValue = "", { useEditorClasses = false } = {}) => {
+export const prompt = async (tab, title, message, defaultValue = "", { useEditorClasses = false } = {}) => {
+  const mode = tab.editorMode !== null && useEditorClasses ? "editor" : tab.clientVersion;
+  if (mode === "editor") await tab.scratchClassReady();
   const { remove, container, content, backdrop, closeButton } = tab.createModal(title, {
     isOpen: true,
-    useEditorClasses: useEditorClasses,
+    useEditorClasses: mode === "editor",
     useSizesClass: true,
   });
-  const mode = tab.editorMode !== null && useEditorClasses ? "editor" : tab.clientVersion;
   if (mode === "editor") {
     container.classList.add(tab.scratchClass("prompt_modal-content"));
     content.classList.add(tab.scratchClass("prompt_body"));
@@ -306,7 +308,7 @@ export const prompt = (tab, title, message, defaultValue = "", { useEditorClasse
   const { buttonRow, cancelButton, okButton } = createButtonRow(tab, mode);
   if (mode === "scratchr2") container.appendChild(buttonRow);
   else content.appendChild(buttonRow);
-  return new Promise((resolve) => {
+  return await new Promise((resolve) => {
     const cancel = () => {
       remove();
       resolve(null);
