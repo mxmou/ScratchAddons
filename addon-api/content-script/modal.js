@@ -227,7 +227,12 @@ const createButtonRow = (tab, mode, { okButtonLabel, cancelButtonLabel } = {}) =
   return { buttonRow, cancelButton, okButton };
 };
 
-export const confirm = async (tab, title, message, { useEditorClasses = false, okButtonLabel, cancelButtonLabel } = {}) => {
+export const confirm = async (
+  tab,
+  title,
+  message,
+  { useEditorClasses = false, okButtonLabel, cancelButtonLabel } = {}
+) => {
   const mode = tab.editorMode !== null && useEditorClasses ? "editor" : tab.clientVersion;
   if (mode === "editor") await tab.scratchClassReady();
   const { remove, container, content, backdrop, closeButton } = tab.createModal(title, {
