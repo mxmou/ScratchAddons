@@ -188,10 +188,11 @@ export const createScratchr2Modal = (title, { isOpen = false } = {}) => {
 const createButtonRow = (tab, mode, { okButtonLabel, cancelButtonLabel } = {}) => {
   const buttonRow = Object.assign(document.createElement("div"), {
     className: {
-      editor: tab.scratchClass("prompt_button-row"),
-      "scratch-www": "action-buttons",
-      scratchr2: "modal-footer",
-    }[mode],
+      // Use a function to avoid calling scratchClass() outside editor
+      editor: () => tab.scratchClass("prompt_button-row"),
+      "scratch-www": () => "action-buttons",
+      scratchr2: () => "modal-footer",
+    }[mode](),
   });
   const cancelButton = Object.assign(document.createElement("button"), {
     className: { "scratch-www": "button action-button close-button white" }[mode] || "",
@@ -208,9 +209,10 @@ const createButtonRow = (tab, mode, { okButtonLabel, cancelButtonLabel } = {}) =
   buttonRow.appendChild(cancelButton);
   const okButton = Object.assign(document.createElement("button"), {
     className: {
-      editor: tab.scratchClass("prompt_ok-button"),
-      "scratch-www": "button action-button submit-button",
-    }[mode],
+      editor: () => tab.scratchClass("prompt_ok-button"),
+      "scratch-www": () => "button action-button submit-button",
+      scratchr2: () => "",
+    }[mode](),
     innerText:
       okButtonLabel ||
       tab.scratchMessage(
@@ -239,7 +241,7 @@ export const confirm = async (tab, title, message, { useEditorClasses = false, o
   }
   content.appendChild(
     Object.assign(document.createElement("div"), {
-      className: { editor: tab.scratchClass("prompt_label") }[mode] || "",
+      className: mode === "editor" ? tab.scratchClass("prompt_label") : "",
       style: { "scratch-www": "margin: .9375rem 0.8275rem 0 .8275rem" }[mode] || "",
       innerText: message,
     })
@@ -285,13 +287,17 @@ export const prompt = async (tab, title, message, defaultValue = "", { useEditor
   }
   content.appendChild(
     Object.assign(document.createElement("div"), {
-      className: { editor: tab.scratchClass("prompt_label") }[mode] || "",
+      className: mode === "editor" ? tab.scratchClass("prompt_label") : "",
       style: { "scratch-www": "margin: .9375rem 0.8275rem 1.125rem .8275rem" }[mode] || "",
       innerText: message,
     })
   );
   const input = Object.assign(document.createElement("input"), {
-    className: { editor: tab.scratchClass("prompt_variable-name-text-input"), "scratch-www": "input" }[mode] || "",
+    className: {
+      editor: () => tab.scratchClass("prompt_variable-name-text-input"),
+      "scratch-www": () => "input",
+      scratchr2: () => "",
+    }[mode](),
     style:
       {
         "scratch-www": `
