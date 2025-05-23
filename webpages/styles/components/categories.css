@@ -15,7 +15,9 @@
   box-sizing: border-box;
   position: absolute;
   z-index: 200;
-  height: calc(100vh - 60px);
+  margin-top: 55px; /* height of search toolbar */
+  height: calc(100vh - 115px);
+  padding-top: 14px;
   padding-bottom: 0;
   transition: 0.25s;
 }

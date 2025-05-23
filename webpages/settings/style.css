@@ -118,8 +118,28 @@ h1 {
   border-bottom: 1px solid var(--control-border);
   display: flex;
   align-items: center;
+  min-height: 34px;
   padding: 10px 40px;
   user-select: none;
+}
+
+.addons-block-header.small-mode {
+  padding: 10px 13px;
+}
+
+.sidebar-toggle {
+  margin-inline-end: 15px;
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.sidebarToggleOpen,
+.sidebar-toggle:hover {
+  background-color: var(--hover-highlight);
 }
 
 .category-header-title {
@@ -176,7 +196,6 @@ h1 {
   line-height: 0;
   transition: 0.2s ease;
 }
-.sidebarToggleOpen,
 .header-button:hover {
   background: var(--header-hover-darken);
 }

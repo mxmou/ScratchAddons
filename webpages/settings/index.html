@@ -174,16 +174,6 @@
   </head>
   <body v-cloak :class="{light: theme}">
     <div class="navbar">
-      <img
-        src="../../images/icons/menu.svg"
-        id="sidebar-toggle"
-        class="header-button"
-        :class="{sidebarToggleOpen: categoryOpen === true}"
-        @click="sidebarToggle()"
-        v-cloak
-        v-show="smallMode"
-        draggable="false"
-      />
       <img src="../../images/icon-transparent.svg" class="logo" alt="Logo" draggable="false" />
       <h1 v-cloak>{{ msg("settings") }}</h1>
       <div @click="setTheme(!theme)" class="header-button header-end">
@@ -245,7 +235,17 @@
 
       <!-- This is the main menu, where the searchbar and the addon items are located -->
       <div class="addons-block">
-        <div class="addons-block-header">
+        <div class="addons-block-header" :class="{'small-mode': smallMode === true}">
+          <img
+            src="../../images/icons/menu.svg"
+            id="sidebar-toggle"
+            class="sidebar-toggle"
+            :class="{sidebarToggleOpen: categoryOpen === true}"
+            @click="sidebarToggle()"
+            v-cloak
+            v-show="smallMode"
+            draggable="false"
+          />
           <div v-if="!isIframe" class="category-header-title" v-cloak>
             <div v-if="relatedAddonsOpen" class="related-addons-header">
               <img
