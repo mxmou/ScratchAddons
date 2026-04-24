@@ -47,15 +47,20 @@ export async function load(addon) {
       }
 
       const isDuplicating =
-        enableDuplication && e.altKey && !this.flyout && this.targetBlock.type !== "procedures_definition";
+        enableDuplication &&
+        e.altKey &&
+        !this.flyout &&
+        this.targetBlock.type !== "procedures_definition" &&
+        this.targetBlock.type !== "procedures_prototype";
 
       if (isDuplicating) {
         this.startWorkspace_.setResizesEnabled(false);
         ScratchBlocks.Events.disable();
         let newBlock;
         try {
-          const xmlBlock = ScratchBlocks.Xml.blockToDom(this.targetBlock);
-          newBlock = ScratchBlocks.Xml.domToBlock(xmlBlock, this.startWorkspace_);
+          const serializedBlock = ScratchBlocks.serialization.blocks.save(this.targetBlock);
+          ScratchBlocks.scratchBlocksUtils.stripIds(serializedBlock);
+          newBlock = ScratchBlocks.serialization.blocks.appendInternal(serializedBlock, this.startWorkspace_);
           const xy = this.targetBlock.getRelativeToSurfaceXY();
           newBlock.moveBy(xy.x, xy.y);
         } catch (e) {
