@@ -107,18 +107,6 @@
       }
     },
     {
-      "name": "page-divider5",
-      "value": {
-        "type": "textColor",
-        "black": "rgba(0, 0, 0, 0.05)",
-        "white": "rgba(255, 255, 255, 0.05)",
-        "source": {
-          "type": "settingValue",
-          "settingId": "page"
-        }
-      }
-    },
-    {
       "name": "page-divider15",
       "value": {
         "type": "textColor",
