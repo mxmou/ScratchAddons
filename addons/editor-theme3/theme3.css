@@ -21,6 +21,12 @@
      In the new Blockly version, they currently look like normal text inputs. */
   fill: var(--editorTheme3-inputColor);
 }
+.blocklyShadow.textField.blocklyEditing,
+.blocklyInputField.blocklyEditing {
+  /* Hide text input fields while editing so that only the HTML input is visible.
+     This is needed for transparent inputs. */
+  visibility: hidden;
+}
 
 /* Override Scratch's high contrast theme */
 .blocklyDropDownDiv .goog-menuitem {
