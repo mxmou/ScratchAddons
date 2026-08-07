@@ -34,7 +34,7 @@ export default async function ({ addon, console }) {
 
   const oldShowEditor = Blockly.FieldColourSlider.prototype.showEditor_;
   Blockly.FieldColourSlider.prototype.showEditor_ = function (...args) {
-    oldShowEditor.call(this);
+    oldShowEditor.call(this, ...args);
     this.hueReadout_.addEventListener("input", getInputListener(this, "hue"));
     this.saturationReadout_.addEventListener("input", getInputListener(this, "saturation"));
     this.brightnessReadout_.addEventListener("input", getInputListener(this, "brightness"));
