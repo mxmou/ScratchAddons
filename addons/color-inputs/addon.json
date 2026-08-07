@@ -11,7 +11,17 @@
   "tags": ["editor", "costumeEditor", "featured"],
   "userscripts": [
     {
-      "url": "userscript.js",
+      "url": "code-editor.js",
+      "matches": ["projects"]
+    },
+    {
+      "url": "paint-editor.js",
+      "matches": ["projects"]
+    }
+  ],
+  "userstyles": [
+    {
+      "url": "style.css",
       "matches": ["projects"]
     }
   ]
