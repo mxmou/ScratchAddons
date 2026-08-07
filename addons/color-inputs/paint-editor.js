@@ -31,9 +31,10 @@ export default async function ({ addon, msg, console }) {
       });
       const _setState = pickerContainer.setState.bind(pickerContainer);
       pickerContainer.setState = function (state, callback) {
-        const [type, val] = Object.entries(state)[0];
-        if (type === c) {
-          input.value = Math.round(val * 10) / 10;
+        for (const [type, val] of Object.entries(state)) {
+          if (type === c) {
+            input.value = Math.round(val * 10) / 10;
+          }
         }
         _setState(state, callback);
       };
