@@ -4,7 +4,8 @@
   align-items: center;
 }
 
-.sa-color-inputs-row-header [class*='color-picker_label-readout'] {
+.sa-color-inputs-row-header [class*='color-picker_label-readout'],
+.sa-color-inputs-row-header .scratchColourPickerReadout {
   display: none;
 }
 

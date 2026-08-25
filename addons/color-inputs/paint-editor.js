@@ -43,6 +43,7 @@ export default async function ({ addon, msg, console }) {
           pickerContainer.handleColorChange();
         });
       });
+      addon.tab.displayNoneWhileDisabled(input);
       header.append(input);
     });
   }
